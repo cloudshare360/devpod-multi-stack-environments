@@ -4,11 +4,11 @@ This document provides a comprehensive overview of port assignments across all D
 
 ## Port Allocation Strategy
 
-Each project has been assigned a unique set of ports to avoid conflicts when running multiple environments simultaneously. **Note**: Ports 80, 3000, and 3030 are avoided as they may conflict with local development applications.
+Each project has been assigned a unique set of ports to avoid conflicts when running multiple environments simultaneously. **Note**: Ports 80, 3000, 3030, and 8080 are avoided as they may conflict with local development applications.
 
 | Project | Database | pgAdmin | API Port | UI Port | Additional |
 |---------|----------|---------|----------|---------|------------|
-| **postgresql-devpod-project** | 5432 | 8080 | - | - | 3002, 8000 |
+| **postgresql-devpod-project** | 5432 | 8088 | - | - | 3002, 8000 |
 | **java17-project** | 5433 | 8081 | 8090 | - | - |
 | **nodejs-project** | 5434 | 8082 | 9000 | - | 3001 |
 | **python3-project** | 5435 | 8083 | 8000 | - | 8001, 5000 |
@@ -23,13 +23,13 @@ Each project has been assigned a unique set of ports to avoid conflicts when run
 ✅ **Predictable Pattern**: Sequential numbering makes ports easy to remember  
 ✅ **Multiple Projects**: Can run all projects simultaneously without conflicts  
 ✅ **Container Isolation**: Unique container names prevent Docker conflicts  
-✅ **Local Compatibility**: Avoids ports 80, 3000, and 3030 commonly used by local applications
+✅ **Local Compatibility**: Avoids ports 80, 3000, 3030, and 8080 commonly used by local applications
 
 ## Access URLs by Project
 
 ### postgresql-devpod-project
 - **PostgreSQL**: `localhost:5432`
-- **pgAdmin**: `http://localhost:8080`
+- **pgAdmin**: `http://localhost:8088`
 - **Development Server**: `http://localhost:3002`
 
 ### java17-project
@@ -161,4 +161,4 @@ This prevents Docker container naming conflicts.
 
 *Last Updated: October 25, 2025*  
 *Port allocation implemented to support simultaneous multi-project development*  
-*Updated to avoid conflicts with common local ports (80, 3000, 3030)*
+*Updated to avoid conflicts with common local ports (80, 3000, 3030, 8080)*
