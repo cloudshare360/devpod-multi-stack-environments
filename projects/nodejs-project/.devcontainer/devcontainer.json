@@ -1,0 +1,41 @@
+{
+    "name": "Node.js Development Environment",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "18",
+            "nodeGypDependencies": true
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-typescript-next",
+                "esbenp.prettier-vscode",
+                "ms-vscode.vscode-eslint",
+                "ms-vscode.vscode-json",
+                "bradlc.vscode-tailwindcss",
+                "formulahendry.auto-rename-tag",
+                "christian-kohler.path-intellisense",
+                "ms-vscode.vscode-npm-script"
+            ],
+            "settings": {
+                "typescript.updateImportsOnFileMove.enabled": "always",
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "editor.codeActionsOnSave": {
+                    "source.fixAll.eslint": true
+                },
+                "typescript.preferences.quoteStyle": "single",
+                "javascript.preferences.quoteStyle": "single"
+            }
+        }
+    },
+    "forwardPorts": [3000, 3001, 8000],
+    "postCreateCommand": "npm install && npm run setup",
+    "postStartCommand": "npm run dev",
+    "remoteUser": "node",
+    "workspaceFolder": "/workspaces/nodejs-project"
+}

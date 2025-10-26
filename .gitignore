@@ -1,0 +1,75 @@
+# DevPod and Container files
+.devcontainer/.devpod/
+*.log
+.env.local
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.npm
+.yarn-integrity
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+
+# Java
+target/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+.gradle/
+build/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# React/Angular
+dist/
+build/
+.cache/
+coverage/
+
+# VS Code
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Docker
+.docker/
+
+# DevPod specific
+.devpod/

@@ -1,0 +1,17 @@
+{
+    "name": "MERN Stack Development",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "frontend",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-typescript-next",
+                "esbenp.prettier-vscode",
+                "ms-vscode.vscode-eslint"
+            ]
+        }
+    },
+    "forwardPorts": [3000, 5000, 27017],
+    "postCreateCommand": "cd frontend && npm install && cd ../backend && npm install"
+}

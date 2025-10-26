@@ -1,0 +1,2 @@
+# This file ensures the pgadmin directory is tracked by git
+# pgAdmin configuration files will be stored here when using Docker Compose

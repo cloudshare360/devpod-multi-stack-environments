@@ -1,0 +1,18 @@
+{
+    "name": "Angular-Java-PostgreSQL Stack",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "development",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Angular.ng-template",
+                "redhat.java",
+                "ms-vscode.vscode-typescript-next",
+                "vscjava.vscode-java-pack"
+            ]
+        }
+    },
+    "forwardPorts": [4200, 8080, 5432, 8081],
+    "postCreateCommand": "cd frontend && npm install -g @angular/cli@17 && npm install"
+}

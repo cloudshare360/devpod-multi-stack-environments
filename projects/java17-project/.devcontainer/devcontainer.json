@@ -1,0 +1,50 @@
+{
+    "name": "Java 21 Spring Boot with PostgreSQL Development Environment",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/java17-project",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "redhat.java",
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-spring-boot-dashboard",
+                "pivotal.vscode-spring-boot",
+                "vscjava.vscode-spring-initializr",
+                "vscjava.vscode-maven",
+                "ms-vscode.vscode-json",
+                "redhat.vscode-xml",
+                "gabrielbb.vscode-lombok",
+                "ms-ossdata.vscode-postgresql",
+                "bradlc.vscode-tailwindcss"
+            ],
+            "settings": {
+                "java.compile.nullAnalysis.mode": "automatic",
+                "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-21",
+                        "path": "/usr/lib/jvm/java-21-openjdk-amd64"
+                    }
+                ]
+            }
+        }
+    },
+    "forwardPorts": [8080, 5432, 5050],
+    "portsAttributes": {
+        "8080": {
+            "label": "Spring Boot Application",
+            "onAutoForward": "notify"
+        },
+        "5432": {
+            "label": "PostgreSQL Database",
+            "onAutoForward": "silent"
+        },
+        "5050": {
+            "label": "pgAdmin UI",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
+    "remoteUser": "vscode"
+}

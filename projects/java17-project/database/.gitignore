@@ -1,0 +1,13 @@
+# Ignore PostgreSQL data files (but keep the folder structure)
+/data/*
+!/data/.gitkeep
+
+# Ignore pgAdmin config files (but keep the folder structure)
+/pgadmin/*
+!/pgadmin/.gitkeep
+
+# Ignore backup files
+/backup/
+
+# Keep init scripts
+!/init/

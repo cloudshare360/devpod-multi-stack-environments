@@ -1,0 +1,19 @@
+{
+    "name": "Angular Development Environment",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {"version": "18"}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Angular.ng-template",
+                "ms-vscode.vscode-typescript-next",
+                "johnpapa.Angular2"
+            ]
+        }
+    },
+    "forwardPorts": [4200, 4201],
+    "postCreateCommand": "npm install -g @angular/cli@17 && npm install",
+    "remoteUser": "node"
+}
