@@ -75,7 +75,7 @@
             }
         }
     },
-    "forwardPorts": [5432, 8080, 3000, 8000],
+    "forwardPorts": [5432, 8080, 3002, 8000],
     "portsAttributes": {
         "5432": {
             "label": "PostgreSQL Database",
@@ -85,7 +85,7 @@
             "label": "pgAdmin Web Interface",
             "onAutoForward": "openBrowser"
         },
-        "3000": {
+        "3002": {
             "label": "Development Server",
             "onAutoForward": "silent"
         },

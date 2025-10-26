@@ -5,7 +5,7 @@ services:
     volumes:
       - .:/workspace:cached
     ports:
-      - "3000:3000"
+      - "3020:3000"
     depends_on:
       - backend
     environment:
