@@ -1,51 +1,35 @@
 #!/bin/bash
-# Node.js Project DevPod Launcher
-# Usage: ./start-devpod.sh
+# Node.js Project DevPod Management Script
+# Usage: ./start-devpod.sh [start|stop|restart|status|logs|ssh|delete|clean-start]
 
-set -e
-
+# Project Configuration
 PROJECT_NAME="nodejs-project"
 WORKSPACE_ID="nodejs-devpod-workspace"
+PROJECT_PORT="3000"
 
-echo "🚀 Starting Node.js DevPod Environment"
-echo "======================================"
+# Load enhanced management functions
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../manage-devpod-template.sh"
 
-# Check if DevPod is installed
-if ! command -v devpod &> /dev/null; then
-    echo "❌ DevPod CLI not found. Please install it first."
-    echo "Run: ../install-devpod.sh"
-    exit 1
-fi
-
-# Check if Docker is running
-if ! docker info &> /dev/null; then
-    echo "❌ Docker is not running. Please start Docker."
-    exit 1
-fi
-
-echo "📦 Project: $PROJECT_NAME"
-echo "🆔 Workspace ID: $WORKSPACE_ID"
-echo ""
-
-# Start DevPod workspace
-echo "🏗️  Starting DevPod workspace..."
-devpod up . --id "$WORKSPACE_ID" --ide vscode
-
-echo ""
-echo "✅ Node.js DevPod environment started successfully!"
-echo ""
-echo "📋 Available endpoints:"
-echo "   🌐 Main API: http://localhost:3000"
-echo "   ❤️  Health Check: http://localhost:3000/health"
-echo "   👥 Users API: http://localhost:3000/api/users"
-echo ""
-echo "📝 Development commands:"
-echo "   npm run dev     - Start development server"
-echo "   npm run test    - Run tests"
-echo "   npm run lint    - Check code quality"
-echo "   npm run format  - Format code"
-echo ""
-echo "🛠️  To manage workspace:"
-echo "   devpod stop $WORKSPACE_ID"
-echo "   devpod ssh $WORKSPACE_ID"
-echo "   devpod logs $WORKSPACE_ID"
+# Override the print_endpoints function for Node.js specific endpoints
+print_endpoints() {
+    echo ""
+    print_color $GREEN "📋 Available endpoints:"
+    print_color $GREEN "   🌐 Main API: http://localhost:3000"
+    print_color $GREEN "   ❤️  Health Check: http://localhost:3000/health"
+    print_color $GREEN "   👥 Users API: http://localhost:3000/api/users"
+    echo ""
+    print_color $BLUE "📝 Development commands:"
+    print_color $BLUE "   npm run dev     - Start development server"
+    print_color $BLUE "   npm run test    - Run tests"
+    print_color $BLUE "   npm run lint    - Check code quality"
+    print_color $BLUE "   npm run format  - Format code"
+    print_color $BLUE "   npm run setup   - Setup project"
+    echo ""
+    print_color $BLUE "🛠️  Workspace management:"
+    print_color $BLUE "   ./start-devpod.sh stop      - Stop workspace"
+    print_color $BLUE "   ./start-devpod.sh restart   - Restart workspace"
+    print_color $BLUE "   ./start-devpod.sh ssh       - SSH into workspace"
+    print_color $BLUE "   ./start-devpod.sh logs      - View logs"
+    print_color $BLUE "   ./start-devpod.sh clean-start - Force clean start"
+}

@@ -7,35 +7,114 @@
             "nodeGypDependencies": true
         },
         "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {}
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "customizations": {
         "vscode": {
             "extensions": [
+                // Core Node.js Development
                 "ms-vscode.vscode-typescript-next",
-                "esbenp.prettier-vscode",
-                "ms-vscode.vscode-eslint",
                 "ms-vscode.vscode-json",
-                "bradlc.vscode-tailwindcss",
+                "ms-vscode.vscode-eslint",
+                "esbenp.prettier-vscode",
+                
+                // Node.js Specific
+                "ms-vscode.vscode-npm-script",
+                "christian-kohler.npm-intellisense",
+                "eg2.vscode-npm-script",
+                
+                // API Development
+                "humao.rest-client",
+                "ms-vscode.vscode-json5",
+                "redhat.vscode-yaml",
+                
+                // Git & Version Control
+                "eamodio.gitlens",
+                "github.vscode-github-actions",
+                
+                // Code Quality & Testing
+                "orta.vscode-jest",
+                "ms-vscode.test-adapter-converter",
+                
+                // Productivity
                 "formulahendry.auto-rename-tag",
                 "christian-kohler.path-intellisense",
-                "ms-vscode.vscode-npm-script"
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.vscode-todo-highlight",
+                "gruntfuggly.todo-tree",
+                
+                // DevContainer & Docker
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                
+                // Browser Development
+                "ms-vscode.live-server",
+                "ritwickdey.liveserver",
+                
+                // Theme & UI
+                "pkief.material-icon-theme",
+                "zhuangtongfa.material-theme"
             ],
             "settings": {
-                "typescript.updateImportsOnFileMove.enabled": "always",
+                // Editor Configuration
                 "editor.formatOnSave": true,
-                "editor.defaultFormatter": "esbenp.prettier-vscode",
                 "editor.codeActionsOnSave": {
-                    "source.fixAll.eslint": true
+                    "source.fixAll.eslint": "explicit"
                 },
+                "editor.tabSize": 2,
+                "editor.insertSpaces": true,
+                "editor.detectIndentation": false,
+                
+                // TypeScript/JavaScript
+                "typescript.updateImportsOnFileMove.enabled": "always",
                 "typescript.preferences.quoteStyle": "single",
-                "javascript.preferences.quoteStyle": "single"
+                "javascript.preferences.quoteStyle": "single",
+                "typescript.suggest.autoImports": true,
+                "javascript.suggest.autoImports": true,
+                
+                // Files
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 1000,
+                "files.trimTrailingWhitespace": true,
+                "files.insertFinalNewline": true,
+                
+                // Terminal
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "terminal.integrated.defaultProfile.linux": "bash",
+                
+                // Testing
+                "jest.autoRun": "watch",
+                "jest.showCoverageOnLoad": true,
+                
+                // Git
+                "git.enableSmartCommit": true,
+                "git.confirmSync": false,
+                "gitlens.views.repositories.location": "scm",
+                
+                // Workbench
+                "workbench.startupEditor": "readme"
             }
         }
     },
-    "forwardPorts": [3000, 3001, 8000],
+    "forwardPorts": [3000, 3001, 8000, 5000, 8080],
+    "portsAttributes": {
+        "3000": {
+            "label": "Main API Server",
+            "onAutoForward": "notify"
+        },
+        "3001": {
+            "label": "Development Server",
+            "onAutoForward": "silent"
+        },
+        "8000": {
+            "label": "Additional Services",
+            "onAutoForward": "silent"
+        }
+    },
     "postCreateCommand": "npm install && npm run setup",
-    "postStartCommand": "npm run dev",
+    "postStartCommand": "echo 'DevPod workspace ready! Run: npm run dev'",
     "remoteUser": "node",
-    "workspaceFolder": "/workspaces/nodejs-project"
+    "workspaceFolder": "/workspaces/nodejs-project",
+    "shutdownAction": "stopContainer"
 }
