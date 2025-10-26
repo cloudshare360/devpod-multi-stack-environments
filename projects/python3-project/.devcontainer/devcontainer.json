@@ -44,9 +44,11 @@
                 // Database & API
                 "humao.rest-client",
                 "rangav.vscode-thunder-client",
-                "cweijan.vscode-mysql-client2",
                 "ms-ossdata.vscode-postgresql",
+                "cweijan.vscode-postgresql-client2",
                 "mtxr.sqltools",
+                "mtxr.sqltools-driver-pg",
+                "cweijan.vscode-mysql-client2",
                 
                 // File Support & Syntax
                 "ms-vscode.vscode-json",
@@ -150,7 +152,7 @@
             }
         }
     },
-    "forwardPorts": [8000, 8001, 5000],
+    "forwardPorts": [8000, 8001, 5000, 5435, 8083],
     "postCreateCommand": "pip install -r requirements.txt",
     "postStartCommand": "uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
     "remoteUser": "vscode",

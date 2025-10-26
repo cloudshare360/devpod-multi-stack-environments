@@ -98,6 +98,6 @@
             ]
         }
     },
-    "forwardPorts": [3000, 5000, 27017],
+    "forwardPorts": [3020, 5000, 27017, 5438, 8086],
     "postCreateCommand": "cd frontend && npm install && cd ../backend && npm install"
 }

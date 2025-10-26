@@ -105,6 +105,6 @@
             ]
         }
     },
-    "forwardPorts": [4200, 8080, 5432, 8081],
+    "forwardPorts": [4210, 8095, 5439, 8087],
     "postCreateCommand": "cd frontend && npm install -g @angular/cli@17 && npm install"
 }

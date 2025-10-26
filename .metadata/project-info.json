@@ -1,0 +1,172 @@
+{
+  "project": {
+    "name": "devpod-multi-stack-environments",
+    "version": "2.0.0",
+    "description": "Comprehensive DevPod environments with database integration for multiple technology stacks",
+    "created": "2024-10-25",
+    "lastUpdated": "2024-10-25"
+  },
+  "database": {
+    "schema": "employee_management",
+    "version": "1.0.0",
+    "description": "Comprehensive employee management database demonstrating all RDBMS relationship types",
+    "entities": {
+      "core": [
+        "departments",
+        "employees", 
+        "employee_profiles",
+        "skills",
+        "projects"
+      ],
+      "operational": [
+        "attendance",
+        "leave_requests",
+        "performance_reviews",
+        "salary_history",
+        "audit_logs"
+      ],
+      "junction": [
+        "employee_skills",
+        "project_assignments"
+      ]
+    },
+    "relationships": {
+      "one_to_one": [
+        "employees -> employee_profiles",
+        "departments -> department_head"
+      ],
+      "one_to_many": [
+        "departments -> employees",
+        "employees -> attendance",
+        "employees -> leave_requests",
+        "employees -> salary_history",
+        "projects -> project_assignments"
+      ],
+      "many_to_many": [
+        "employees <-> skills (via employee_skills)",
+        "employees <-> projects (via project_assignments)"
+      ],
+      "self_referencing": [
+        "employees -> manager (hierarchical)"
+      ]
+    },
+    "features": [
+      "UUID primary keys",
+      "JSONB for semi-structured data",
+      "Full-text search indexes",
+      "Automatic timestamp triggers",
+      "Comprehensive constraints",
+      "Performance indexes",
+      "Audit trail logging"
+    ]
+  },
+  "projects": {
+    "total": 8,
+    "environments": [
+      {
+        "name": "java17-project",
+        "technology": "Java 17 + Spring Boot",
+        "database_integration": "JPA/Hibernate with PostgreSQL",
+        "features": ["REST API", "Database connectivity", "DevPod ready"]
+      },
+      {
+        "name": "nodejs-project", 
+        "technology": "Node.js 18 + Express",
+        "database_integration": "Sequelize ORM with PostgreSQL",
+        "features": ["REST API", "Database connectivity", "DevPod ready"]
+      },
+      {
+        "name": "python3-project",
+        "technology": "Python 3.11 + FastAPI",
+        "database_integration": "SQLAlchemy with PostgreSQL",
+        "features": ["REST API", "Database connectivity", "DevPod ready"]
+      },
+      {
+        "name": "react-project",
+        "technology": "React 18 + TypeScript",
+        "database_integration": "Frontend for REST APIs",
+        "features": ["Modern UI", "Database integration via API", "DevPod ready"]
+      },
+      {
+        "name": "angular-project",
+        "technology": "Angular 16 + TypeScript",
+        "database_integration": "Frontend for REST APIs",
+        "features": ["Enterprise UI", "Database integration via API", "DevPod ready"]
+      },
+      {
+        "name": "mern-fullstack",
+        "technology": "MongoDB + Express + React + Node.js",
+        "database_integration": "PostgreSQL alternative for learning",
+        "features": ["Full-stack", "Database alternatives", "DevPod ready"]
+      },
+      {
+        "name": "angular-java-fullstack",
+        "technology": "Angular + Spring Boot",
+        "database_integration": "Complete full-stack with PostgreSQL",
+        "features": ["Enterprise full-stack", "Complete database integration", "DevPod ready"]
+      },
+      {
+        "name": "postgresql-devpod-project",
+        "technology": "PostgreSQL + pgAdmin",
+        "database_integration": "Database environment for learning",
+        "features": ["Database playground", "pgAdmin interface", "DevPod ready"]
+      }
+    ]
+  },
+  "devpod_features": {
+    "script_system": {
+      "individual_scripts": true,
+      "operations": ["start", "stop", "restart", "status", "logs", "ssh", "delete"],
+      "conflict_resolution": true,
+      "browser_automation": true,
+      "port_management": true
+    },
+    "database_integration": {
+      "postgresql_included": true,
+      "pgadmin_included": true,
+      "schema_management": true,
+      "seed_data": true,
+      "management_scripts": true
+    },
+    "extensions": {
+      "code_execution": ["formulahendry.code-runner"],
+      "database_tools": [
+        "ms-ossdata.vscode-postgresql",
+        "cweijan.vscode-postgresql-client2", 
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg"
+      ],
+      "api_testing": [
+        "humao.rest-client",
+        "rangav.vscode-thunder-client"
+      ]
+    }
+  },
+  "learning_outcomes": [
+    "Full-stack development with real database",
+    "RDBMS relationship types (1:1, 1:M, M:M)",
+    "SQL query optimization",
+    "Database design patterns",
+    "REST API development",
+    "DevOps with containers",
+    "Modern development workflows",
+    "Cross-technology integration"
+  ],
+  "usage_statistics": {
+    "total_tables": 12,
+    "sample_records": {
+      "departments": 10,
+      "employees": 20,
+      "employee_profiles": 15,
+      "attendance": 30,
+      "leave_requests": 13
+    },
+    "supported_queries": [
+      "Employee hierarchy queries",
+      "Project assignment reports", 
+      "Skills matrix analysis",
+      "Attendance analytics",
+      "Performance tracking"
+    ]
+  }
+}

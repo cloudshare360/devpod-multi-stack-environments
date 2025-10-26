@@ -100,7 +100,7 @@
             ]
         }
     },
-    "forwardPorts": [4200, 4201],
+    "forwardPorts": [4200, 4201, 5437, 8085],
     "postCreateCommand": "npm install -g @angular/cli@17 && npm install",
     "remoteUser": "node"
 }

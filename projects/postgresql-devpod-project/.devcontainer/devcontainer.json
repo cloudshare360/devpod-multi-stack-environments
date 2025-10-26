@@ -1,0 +1,102 @@
+{
+    "name": "PostgreSQL Development Environment",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "18"
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.11"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.pylint",
+                "ms-python.black-formatter",
+                "ms-toolsai.jupyter",
+                "ms-ossdata.vscode-postgresql",
+                "cweijan.vscode-postgresql-client2",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-pg",
+                "formulahendry.code-runner",
+                "ms-vscode.vscode-json",
+                "redhat.vscode-yaml",
+                "ms-vscode.theme-predawnkit",
+                "PKief.material-icon-theme",
+                "rangav.vscode-thunder-client",
+                "humao.rest-client",
+                "esbenp.prettier-vscode",
+                "bradlc.vscode-tailwindcss",
+                "ms-vscode.vscode-typescript-next",
+                "ms-vscode.js-debug-nightly",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "ms-vscode.powershell",
+                "felixfbecker.php-intellisense",
+                "bmewburn.vscode-intelephense-client"
+            ],
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.provider": "black",
+                "code-runner.runInTerminal": true,
+                "code-runner.preserveFocus": false,
+                "code-runner.saveFileBeforeRun": true,
+                "code-runner.executorMap": {
+                    "python": "python3 -u",
+                    "sql": "psql -h localhost -U devuser -d devdb -f",
+                    "javascript": "node",
+                    "typescript": "npx ts-node"
+                },
+                "sqltools.connections": [
+                    {
+                        "name": "PostgreSQL Development",
+                        "driver": "PostgreSQL",
+                        "host": "localhost",
+                        "port": 5432,
+                        "username": "devuser",
+                        "password": "devpass123",
+                        "database": "devdb",
+                        "connectionTimeout": 60
+                    }
+                ],
+                "files.associations": {
+                    "*.sql": "sql"
+                },
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": "explicit"
+                }
+            }
+        }
+    },
+    "forwardPorts": [5432, 8080, 3000, 8000],
+    "portsAttributes": {
+        "5432": {
+            "label": "PostgreSQL Database",
+            "onAutoForward": "silent"
+        },
+        "8080": {
+            "label": "pgAdmin Web Interface",
+            "onAutoForward": "openBrowser"
+        },
+        "3000": {
+            "label": "Development Server",
+            "onAutoForward": "silent"
+        },
+        "8000": {
+            "label": "API Server",
+            "onAutoForward": "silent"
+        }
+    },
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y postgresql-client curl && pip install psycopg2-binary sqlalchemy pandas jupyter",
+    "remoteUser": "vscode",
+    "mounts": [
+        "source=${localWorkspaceFolder}/db-data-files,target=/workspace/db-data-files,type=bind,consistency=cached"
+    ]
+}

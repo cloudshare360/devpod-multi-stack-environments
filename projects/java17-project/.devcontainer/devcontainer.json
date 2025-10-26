@@ -23,7 +23,11 @@
                 
                 // Database & API
                 "ms-ossdata.vscode-postgresql",
+                "cweijan.vscode-postgresql-client2",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-pg",
                 "humao.rest-client",
+                "rangav.vscode-thunder-client",
                 "cweijan.vscode-mysql-client2",
                 "ms-mssql.mssql",
                 
@@ -121,17 +125,17 @@
             }
         }
     },
-    "forwardPorts": [8080, 5432, 5050],
+    "forwardPorts": [8090, 5433, 8081],
     "portsAttributes": {
-        "8080": {
+        "8090": {
             "label": "Spring Boot Application",
             "onAutoForward": "notify"
         },
-        "5432": {
+        "5433": {
             "label": "PostgreSQL Database",
             "onAutoForward": "silent"
         },
-        "5050": {
+        "8081": {
             "label": "pgAdmin UI",
             "onAutoForward": "notify"
         }

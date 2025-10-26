@@ -74,8 +74,11 @@
                 "davidanson.vscode-markdownlint",
                 
                 // Database Support
-                "cweijan.vscode-mysql-client2",
                 "ms-ossdata.vscode-postgresql",
+                "cweijan.vscode-postgresql-client2",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-pg",
+                "cweijan.vscode-mysql-client2",
                 "bradlc.vscode-mongodb",
                 
                 // Theme & UI Enhancement
@@ -129,19 +132,19 @@
             }
         }
     },
-    "forwardPorts": [3000, 3001, 8000, 5000, 8080],
+    "forwardPorts": [9000, 3001, 5434, 8082],
     "portsAttributes": {
-        "3000": {
-            "label": "Main API Server",
+        "9000": {
+            "label": "Node.js API Server",
             "onAutoForward": "notify"
         },
-        "3001": {
-            "label": "Development Server",
+        "5434": {
+            "label": "PostgreSQL Database",
             "onAutoForward": "silent"
         },
-        "8000": {
-            "label": "Additional Services",
-            "onAutoForward": "silent"
+        "8082": {
+            "label": "pgAdmin UI",
+            "onAutoForward": "notify"
         }
     },
     "postCreateCommand": "npm install && npm run setup",

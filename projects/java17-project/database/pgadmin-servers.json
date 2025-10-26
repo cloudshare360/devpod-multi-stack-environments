@@ -1,0 +1,16 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Dev PostgreSQL",
+      "Group": "Development",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "devdb",
+      "Username": "devuser",
+      "Password": "devpass123",
+      "SSLMode": "prefer",
+      "Shared": true,
+      "Comment": "Development PostgreSQL server for DevPod projects"
+    }
+  }
+}
