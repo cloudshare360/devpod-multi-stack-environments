@@ -1,8 +1,8 @@
 {
-    "name": "MERN Stack Development",
+    "name": "MERN Fullstack Workspace",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "frontend",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/workspaces/mern-fullstack-workspace",
     "customizations": {
         "vscode": {
             "extensions": [

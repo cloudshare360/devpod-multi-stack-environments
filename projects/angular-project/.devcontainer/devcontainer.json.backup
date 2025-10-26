@@ -1,16 +1,18 @@
 {
-    "name": "Angular Java Fullstack Workspace",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "development",
-    "workspaceFolder": "/workspaces/angular-java-fullstack-workspace",
+    "name": "Angular Development Environment",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {"version": "18"}
+    },
     "customizations": {
         "vscode": {
             "extensions": [
-                // Core Fullstack Development
+                // Core Angular Development
                 "Angular.ng-template",
-                "redhat.java",
                 "ms-vscode.vscode-typescript-next",
-                "vscjava.vscode-java-pack",
+                "johnpapa.Angular2",
+                "cyrilletuzi.angular-schematics",
+                "nrwl.angular-console",
                 
                 // Code Execution & Testing
                 "formulahendry.code-runner",
@@ -18,33 +20,21 @@
                 "orta.vscode-jest",
                 "hbenl.vscode-test-explorer",
                 "ms-vscode.test-adapter-converter",
-                "vscjava.vscode-java-test",
+                "raagh.angular-karma-test-explorer",
                 
-                // Java Backend Development
-                "vscjava.vscode-spring-boot-dashboard",
-                "pivotal.vscode-spring-boot",
-                "vscjava.vscode-spring-initializr",
-                "vscjava.vscode-maven",
-                "gabrielbb.vscode-lombok",
-                
-                // Angular Frontend Development
-                "johnpapa.Angular2",
-                "cyrilletuzi.angular-schematics",
-                "nrwl.angular-console",
+                // Angular Specific Tools
+                "angular.ng-template",
+                "johnpapa.angular2",
                 "mikerhyssmith.angular-json-editor",
-                
-                // Database & API
-                "ms-ossdata.vscode-postgresql",
-                "humao.rest-client",
-                "rangav.vscode-thunder-client",
-                "cweijan.vscode-mysql-client2",
-                "ms-mssql.mssql",
+                "cyrilletuzi.angular-schematics",
+                "ms-vscode.vscode-angular-cli",
                 
                 // CSS & Styling
                 "bradlc.vscode-tailwindcss",
                 "zignd.html-css-class-completion",
                 "pranaygp.vscode-css-peek",
                 "stylelint.vscode-stylelint",
+                "ms-vscode.vscode-css-formatter",
                 
                 // Code Quality & Formatting
                 "ms-vscode.vscode-eslint",
@@ -59,12 +49,17 @@
                 "christian-kohler.npm-intellisense",
                 "ms-vscode.vscode-npm-script",
                 
+                // API Development
+                "humao.rest-client",
+                "rangav.vscode-thunder-client",
+                "ms-vscode.vscode-json5",
+                "redhat.vscode-yaml",
+                
                 // File Support & Syntax
                 "ms-vscode.vscode-json",
                 "redhat.vscode-xml",
-                "redhat.vscode-yaml",
-                "ms-vscode.vscode-json5",
                 "ms-vscode.vscode-html",
+                "redhat.vscode-yaml",
                 
                 // Git & Version Control
                 "eamodio.gitlens",
@@ -93,7 +88,7 @@
                 "shd101wyy.markdown-preview-enhanced",
                 "davidanson.vscode-markdownlint",
                 
-                // Fullstack Tools
+                // Component Development
                 "steoates.autoimport-es6-ts",
                 "wix.vscode-import-cost",
                 "ms-vscode.vscode-typescript-next",
@@ -105,6 +100,7 @@
             ]
         }
     },
-    "forwardPorts": [4210, 8095, 5439, 8087],
-    "postCreateCommand": "cd frontend && npm install -g @angular/cli@17 && npm install"
+    "forwardPorts": [4200, 4201, 5437, 8085],
+    "postCreateCommand": "npm install -g @angular/cli@17 && npm install",
+    "remoteUser": "node"
 }

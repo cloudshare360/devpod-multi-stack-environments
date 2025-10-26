@@ -1,60 +1,42 @@
 {
-    "name": "Python3 Project Workspace",
-    "image": "mcr.microsoft.com/devcontainers/python:3.11",
-    "features": {
-        "ghcr.io/devcontainers/features/python:1": {
-            "version": "3.11",
-            "installTools": true
-        },
-        "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {}
-    },
+    "name": "Java 21 Spring Boot with PostgreSQL Development Environment",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/java17-project",
     "customizations": {
         "vscode": {
             "extensions": [
-                // Core Python Development
-                "ms-python.python",
-                "ms-python.pylint",
-                "ms-python.black-formatter",
-                "ms-python.flake8",
-                "ms-python.isort",
-                "ms-python.mypy-type-checker",
-                "charliermarsh.ruff",
+                // Core Java Development
+                "redhat.java",
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-spring-boot-dashboard",
+                "pivotal.vscode-spring-boot",
+                "vscjava.vscode-spring-initializr",
+                "vscjava.vscode-maven",
+                "gabrielbb.vscode-lombok",
                 
                 // Code Execution & Testing
                 "formulahendry.code-runner",
                 "augustocdias.tasks-shell-input",
-                "ms-python.pytest",
-                "hbenl.vscode-test-explorer",
-                "littlefoxteam.vscode-python-test-adapter",
-                
-                // Jupyter & Data Science
-                "ms-toolsai.jupyter",
-                "ms-toolsai.jupyter-keymap",
-                "ms-toolsai.jupyter-renderers",
-                "ms-toolsai.vscode-jupyter-cell-tags",
-                "ms-toolsai.vscode-jupyter-slideshow",
-                
-                // Web Framework Support
-                "batisteo.vscode-django",
-                "ms-python.flake8",
-                "kevinrose.vsc-python-indent",
-                "wholroyd.jinja",
+                "ms-vscode.test-adapter-converter",
+                "vscjava.vscode-java-test",
                 
                 // Database & API
-                "humao.rest-client",
-                "rangav.vscode-thunder-client",
                 "ms-ossdata.vscode-postgresql",
                 "cweijan.vscode-postgresql-client2",
                 "mtxr.sqltools",
                 "mtxr.sqltools-driver-pg",
+                "humao.rest-client",
+                "rangav.vscode-thunder-client",
                 "cweijan.vscode-mysql-client2",
+                "ms-mssql.mssql",
                 
                 // File Support & Syntax
                 "ms-vscode.vscode-json",
+                "redhat.vscode-xml",
                 "redhat.vscode-yaml",
                 "ms-vscode.vscode-json5",
-                "redhat.vscode-xml",
+                "bradlc.vscode-tailwindcss",
                 
                 // Git & Version Control
                 "eamodio.gitlens",
@@ -70,8 +52,8 @@
                 "streetsidesoftware.code-spell-checker",
                 "ms-vscode.vscode-todo-highlight",
                 "gruntfuggly.todo-tree",
+                "formulahendry.auto-rename-tag",
                 "ms-vscode.wordcount",
-                "alefragnani.bookmarks",
                 
                 // Terminal & Shell
                 "timonwong.shellcheck",
@@ -82,34 +64,34 @@
                 "yzhang.markdown-all-in-one",
                 "shd101wyy.markdown-preview-enhanced",
                 "davidanson.vscode-markdownlint",
-                "lextudio.restructuredtext",
-                
-                // Python-specific Tools
-                "ms-python.autopep8",
-                "njpwerner.autodocstring",
-                "almenon.arepl",
-                "dongli.python-preview",
                 
                 // Theme & UI Enhancement
                 "pkief.material-icon-theme",
                 "zhuangtongfa.material-theme",
-                "ms-vscode.theme-predawn"
+                "ms-vscode.theme-predawn",
+                
+                // Performance & Monitoring
+                "ms-vscode.vscode-typescript-next",
+                "ms-vscode.vscode-eslint",
+                "esbenp.prettier-vscode"
             ],
             "settings": {
-                // Python Configuration
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "python.formatting.provider": "black",
-                "python.linting.enabled": true,
-                "python.linting.pylintEnabled": true,
-                "python.linting.flake8Enabled": true,
-                "python.sortImports.args": ["--profile", "black"],
+                // Java Configuration
+                "java.compile.nullAnalysis.mode": "automatic",
+                "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-21",
+                        "path": "/usr/lib/jvm/java-21-openjdk-amd64"
+                    }
+                ],
                 
                 // Code Runner Settings
                 "code-runner.executorMap": {
-                    "python": "python3 -u",
+                    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
                     "javascript": "node",
-                    "shellscript": "bash",
-                    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt"
+                    "python": "python3 -u",
+                    "shellscript": "bash"
                 },
                 "code-runner.runInTerminal": true,
                 "code-runner.saveFileBeforeRun": true,
@@ -123,15 +105,6 @@
                 },
                 "editor.tabSize": 4,
                 "editor.insertSpaces": true,
-                
-                // Python-specific editor settings
-                "[python]": {
-                    "editor.defaultFormatter": "ms-python.python",
-                    "editor.formatOnSave": true,
-                    "editor.codeActionsOnSave": {
-                        "source.organizeImports": "explicit"
-                    }
-                },
                 
                 // Terminal Configuration
                 "terminal.integrated.shell.linux": "/bin/bash",
@@ -152,9 +125,21 @@
             }
         }
     },
-    "forwardPorts": [8000, 8001, 5000, 5435, 8083],
-    "postCreateCommand": "pip install -r requirements.txt",
-    "postStartCommand": "uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
-    "remoteUser": "vscode",
-    "workspaceFolder": "/workspaces/python3-project-workspace"
+    "forwardPorts": [8090, 5433, 8081],
+    "portsAttributes": {
+        "8090": {
+            "label": "Spring Boot Application",
+            "onAutoForward": "notify"
+        },
+        "5433": {
+            "label": "PostgreSQL Database",
+            "onAutoForward": "silent"
+        },
+        "8081": {
+            "label": "pgAdmin UI",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
+    "remoteUser": "vscode"
 }

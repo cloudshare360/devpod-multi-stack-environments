@@ -1,63 +1,64 @@
 {
-    "name": "NodeJS Project Workspace",
+    "name": "React Development Environment",
     "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
     "features": {
-        "ghcr.io/devcontainers/features/node:1": {
-            "version": "18",
-            "nodeGypDependencies": true
-        },
-        "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/node:1": {"version": "18"}
     },
     "customizations": {
         "vscode": {
             "extensions": [
-                // AI-Powered Development
-                "github.copilot",
-                "github.copilot-chat",
-                
-                // Core Node.js Development
+                // Core React Development
                 "ms-vscode.vscode-typescript-next",
-                "ms-vscode.vscode-json",
-                "ms-vscode.vscode-eslint",
                 "esbenp.prettier-vscode",
+                "ms-vscode.vscode-eslint",
+                "dbaeumer.vscode-eslint",
                 
                 // Code Execution & Testing
                 "formulahendry.code-runner",
                 "augustocdias.tasks-shell-input",
-                "ms-vscode.test-adapter-converter",
                 "orta.vscode-jest",
                 "hbenl.vscode-test-explorer",
+                "ms-vscode.test-adapter-converter",
                 
-                // Node.js Specific
-                "ms-vscode.vscode-npm-script",
-                "christian-kohler.npm-intellisense",
-                "eg2.vscode-npm-script",
-                "leizongmin.node-module-intellisense",
+                // React Specific
+                "ms-vscode.vscode-react-native",
+                "burkeholland.simple-react-snippets",
+                "rodrigovallades.es7-react-js-snippets",
+                "dsznajder.es7-react-js-snippets",
                 
-                // API Development & HTTP
-                "humao.rest-client",
-                "rangav.vscode-thunder-client",
-                "ms-vscode.vscode-json5",
-                "redhat.vscode-yaml",
-                
-                // Git & Version Control
-                "eamodio.gitlens",
-                "github.vscode-github-actions",
-                "ms-vscode.vscode-pull-request-github",
-                "github.vscode-pull-request-github",
-                
-                // DevContainer & Docker
-                "ms-vscode-remote.remote-containers",
-                "ms-azuretools.vscode-docker",
+                // CSS & Styling
+                "bradlc.vscode-tailwindcss",
+                "zignd.html-css-class-completion",
+                "pranaygp.vscode-css-peek",
+                "stylelint.vscode-stylelint",
+                "ms-vscode.vscode-css-formatter",
                 
                 // Web Development
                 "ms-vscode.live-server",
                 "ritwickdey.liveserver",
                 "formulahendry.auto-rename-tag",
-                "bradlc.vscode-tailwindcss",
-                "pranaygp.vscode-css-peek",
+                "christian-kohler.npm-intellisense",
+                "ms-vscode.vscode-npm-script",
+                
+                // API Development
+                "humao.rest-client",
+                "rangav.vscode-thunder-client",
+                "ms-vscode.vscode-json5",
+                "redhat.vscode-yaml",
+                
+                // File Support & Syntax
+                "ms-vscode.vscode-json",
+                "redhat.vscode-xml",
+                "ms-vscode.vscode-html",
+                
+                // Git & Version Control
+                "eamodio.gitlens",
+                "github.vscode-github-actions",
+                "ms-vscode.vscode-pull-request-github",
+                
+                // DevContainer & Docker
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
                 
                 // Productivity & Navigation
                 "christian-kohler.path-intellisense",
@@ -77,29 +78,33 @@
                 "shd101wyy.markdown-preview-enhanced",
                 "davidanson.vscode-markdownlint",
                 
-                // Database Support
-                "ms-ossdata.vscode-postgresql",
-                "cweijan.vscode-postgresql-client2",
-                "mtxr.sqltools",
-                "mtxr.sqltools-driver-pg",
-                "cweijan.vscode-mysql-client2",
-                "bradlc.vscode-mongodb",
+                // Component Development
+                "steoates.autoimport-es6-ts",
+                "wix.vscode-import-cost",
+                "ms-vscode.vscode-typescript-next",
                 
                 // Theme & UI Enhancement
                 "pkief.material-icon-theme",
                 "zhuangtongfa.material-theme",
-                "ms-vscode.theme-predawn",
-                
-                // Code Quality & Formatting
-                "dbaeumer.vscode-eslint",
-                "bradlc.vscode-tailwindcss",
-                "ms-vscode.vscode-typescript-next"
+                "ms-vscode.theme-predawn"
             ],
             "settings": {
+                // Code Runner Settings
+                "code-runner.executorMap": {
+                    "javascript": "node",
+                    "typescript": "npx ts-node",
+                    "python": "python3 -u",
+                    "shellscript": "bash"
+                },
+                "code-runner.runInTerminal": true,
+                "code-runner.saveFileBeforeRun": true,
+                "code-runner.clearPreviousOutput": true,
+                
                 // Editor Configuration
                 "editor.formatOnSave": true,
                 "editor.codeActionsOnSave": {
-                    "source.fixAll.eslint": "explicit"
+                    "source.fixAll.eslint": "explicit",
+                    "source.organizeImports": "explicit"
                 },
                 "editor.tabSize": 2,
                 "editor.insertSpaces": true,
@@ -112,50 +117,26 @@
                 "typescript.suggest.autoImports": true,
                 "javascript.suggest.autoImports": true,
                 
-                // Files
+                // Files Configuration
                 "files.autoSave": "afterDelay",
                 "files.autoSaveDelay": 1000,
                 "files.trimTrailingWhitespace": true,
                 "files.insertFinalNewline": true,
                 
-                // Terminal
+                // Terminal Configuration
                 "terminal.integrated.shell.linux": "/bin/bash",
                 "terminal.integrated.defaultProfile.linux": "bash",
                 
-                // Testing
-                "jest.autoRun": "watch",
-                "jest.showCoverageOnLoad": true,
-                
-                // Git
+                // Git Configuration
                 "git.enableSmartCommit": true,
                 "git.confirmSync": false,
-                "gitlens.views.repositories.location": "scm",
                 
                 // Workbench
-                "workbench.startupEditor": "readme",
-                "window.menuBarVisibility": "classic",
-                "window.enableMenuBarMnemonics": true
+                "workbench.startupEditor": "readme"
             }
         }
     },
-    "forwardPorts": [9000, 3001, 5434, 8082],
-    "portsAttributes": {
-        "9000": {
-            "label": "Node.js API Server",
-            "onAutoForward": "notify"
-        },
-        "5434": {
-            "label": "PostgreSQL Database",
-            "onAutoForward": "silent"
-        },
-        "8082": {
-            "label": "pgAdmin UI",
-            "onAutoForward": "notify"
-        }
-    },
-    "postCreateCommand": "npm install && npm run setup",
-    "postStartCommand": "echo 'DevPod workspace ready! Run: npm run dev'",
-    "remoteUser": "node",
-    "workspaceFolder": "/workspaces/nodejs-project-workspace",
-    "shutdownAction": "stopContainer"
+    "forwardPorts": [3010, 3011, 5436, 8084],
+    "postCreateCommand": "npm install",
+    "remoteUser": "node"
 }

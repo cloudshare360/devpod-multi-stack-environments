@@ -1,6 +1,7 @@
 {
-    "name": "Angular Development Environment",
+    "name": "Angular Project Workspace",
     "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+    "workspaceFolder": "/workspaces/angular-project-workspace",
     "features": {
         "ghcr.io/devcontainers/features/node:1": {"version": "18"}
     },

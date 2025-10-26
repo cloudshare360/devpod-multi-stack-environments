@@ -1,8 +1,8 @@
 {
-    "name": "Java 21 Spring Boot with PostgreSQL Development Environment",
+    "name": "Java17 Project Workspace",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "devcontainer",
-    "workspaceFolder": "/workspaces/java17-project",
+    "workspaceFolder": "/workspaces/java17-project-workspace",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -81,7 +81,7 @@
                 "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
                 "java.configuration.runtimes": [
                     {
-                        "name": "JavaSE-21",
+                        "name": "Java17 Project Workspace",
                         "path": "/usr/lib/jvm/java-21-openjdk-amd64"
                     }
                 ],

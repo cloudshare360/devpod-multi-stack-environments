@@ -1,5 +1,5 @@
 {
-    "name": "Python3 Project Workspace",
+    "name": "Python 3.11 FastAPI Development Environment",
     "image": "mcr.microsoft.com/devcontainers/python:3.11",
     "features": {
         "ghcr.io/devcontainers/features/python:1": {
@@ -156,5 +156,5 @@
     "postCreateCommand": "pip install -r requirements.txt",
     "postStartCommand": "uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
     "remoteUser": "vscode",
-    "workspaceFolder": "/workspaces/python3-project-workspace"
+    "workspaceFolder": "/workspaces/python3-project"
 }

@@ -1,7 +1,6 @@
 {
-    "name": "PostgreSQL DevPod Workspace",
+    "name": "PostgreSQL Development Environment",
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-    "workspaceFolder": "/workspaces/postgresql-devpod-project-workspace",
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/node:1": {
@@ -56,7 +55,7 @@
                 },
                 "sqltools.connections": [
                     {
-                        "name": "PostgreSQL DevPod Workspace",
+                        "name": "PostgreSQL Development",
                         "driver": "PostgreSQL",
                         "host": "localhost",
                         "port": 5432,

@@ -1,6 +1,7 @@
 {
-    "name": "React Development Environment",
+    "name": "React Project Workspace",
     "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+    "workspaceFolder": "/workspaces/react-project-workspace",
     "features": {
         "ghcr.io/devcontainers/features/node:1": {"version": "18"}
     },

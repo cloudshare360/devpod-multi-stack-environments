@@ -1,0 +1,32 @@
+# DevPod Workspace Configuration
+# This file defines the standard workspace naming convention and management rules
+
+# Workspace naming pattern: {project-name}-workspace
+# Examples:
+#   nodejs-project → nodejs-project-workspace
+#   java17-project → java17-project-workspace
+#   python3-project → python3-project-workspace
+
+# Project workspace mappings
+[workspaces]
+nodejs-project = "nodejs-project-workspace"
+java17-project = "java17-project-workspace"
+python3-project = "python3-project-workspace"
+react-project = "react-project-workspace"
+angular-project = "angular-project-workspace"
+mern-fullstack = "mern-fullstack-workspace"
+angular-java-fullstack = "angular-java-fullstack-workspace"
+postgresql-devpod-project = "postgresql-devpod-project-workspace"
+
+# Management settings
+[settings]
+auto_cleanup = true
+reuse_existing = true
+log_level = "info"
+backup_before_delete = false
+
+# DevPod Desktop integration
+[desktop]
+auto_open_on_browse = true
+prefer_existing_workspace = true
+show_workspace_conflicts = true
