@@ -6,9 +6,95 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                // Core MERN Development
                 "ms-vscode.vscode-typescript-next",
                 "esbenp.prettier-vscode",
-                "ms-vscode.vscode-eslint"
+                "ms-vscode.vscode-eslint",
+                "dbaeumer.vscode-eslint",
+                
+                // Code Execution & Testing
+                "formulahendry.code-runner",
+                "augustocdias.tasks-shell-input",
+                "orta.vscode-jest",
+                "hbenl.vscode-test-explorer",
+                "ms-vscode.test-adapter-converter",
+                
+                // React Frontend
+                "burkeholland.simple-react-snippets",
+                "rodrigovallades.es7-react-js-snippets",
+                "dsznajder.es7-react-js-snippets",
+                "ms-vscode.vscode-react-native",
+                
+                // Node.js Backend
+                "ms-vscode.vscode-npm-script",
+                "christian-kohler.npm-intellisense",
+                "eg2.vscode-npm-script",
+                "leizongmin.node-module-intellisense",
+                
+                // MongoDB Database
+                "bradlc.vscode-mongodb",
+                "mongodb.mongodb-vscode",
+                "cweijan.vscode-mysql-client2",
+                "ms-ossdata.vscode-postgresql",
+                
+                // Express.js & API
+                "humao.rest-client",
+                "rangav.vscode-thunder-client",
+                "ms-vscode.vscode-json5",
+                "redhat.vscode-yaml",
+                
+                // CSS & Styling
+                "bradlc.vscode-tailwindcss",
+                "zignd.html-css-class-completion",
+                "pranaygp.vscode-css-peek",
+                "stylelint.vscode-stylelint",
+                
+                // Web Development
+                "ms-vscode.live-server",
+                "ritwickdey.liveserver",
+                "formulahendry.auto-rename-tag",
+                
+                // File Support & Syntax
+                "ms-vscode.vscode-json",
+                "redhat.vscode-xml",
+                "ms-vscode.vscode-html",
+                
+                // Git & Version Control
+                "eamodio.gitlens",
+                "github.vscode-github-actions",
+                "ms-vscode.vscode-pull-request-github",
+                
+                // DevContainer & Docker
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                
+                // Productivity & Navigation
+                "christian-kohler.path-intellisense",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.vscode-todo-highlight",
+                "gruntfuggly.todo-tree",
+                "ms-vscode.wordcount",
+                "alefragnani.bookmarks",
+                
+                // Terminal & Shell
+                "timonwong.shellcheck",
+                "rogalmic.bash-debug",
+                "mads-hartmann.bash-ide-vscode",
+                
+                // Documentation & Markdown
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                "davidanson.vscode-markdownlint",
+                
+                // Fullstack Tools
+                "steoates.autoimport-es6-ts",
+                "wix.vscode-import-cost",
+                "ms-vscode.vscode-typescript-next",
+                
+                // Theme & UI Enhancement
+                "pkief.material-icon-theme",
+                "zhuangtongfa.material-theme",
+                "ms-vscode.theme-predawn"
             ]
         }
     },

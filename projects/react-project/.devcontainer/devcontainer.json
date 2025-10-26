@@ -7,11 +7,133 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                // Core React Development
                 "ms-vscode.vscode-typescript-next",
                 "esbenp.prettier-vscode",
+                "ms-vscode.vscode-eslint",
+                "dbaeumer.vscode-eslint",
+                
+                // Code Execution & Testing
+                "formulahendry.code-runner",
+                "augustocdias.tasks-shell-input",
+                "orta.vscode-jest",
+                "hbenl.vscode-test-explorer",
+                "ms-vscode.test-adapter-converter",
+                
+                // React Specific
+                "ms-vscode.vscode-react-native",
+                "burkeholland.simple-react-snippets",
+                "rodrigovallades.es7-react-js-snippets",
+                "dsznajder.es7-react-js-snippets",
+                
+                // CSS & Styling
                 "bradlc.vscode-tailwindcss",
-                "ms-vscode.vscode-eslint"
-            ]
+                "zignd.html-css-class-completion",
+                "pranaygp.vscode-css-peek",
+                "stylelint.vscode-stylelint",
+                "ms-vscode.vscode-css-formatter",
+                
+                // Web Development
+                "ms-vscode.live-server",
+                "ritwickdey.liveserver",
+                "formulahendry.auto-rename-tag",
+                "christian-kohler.npm-intellisense",
+                "ms-vscode.vscode-npm-script",
+                
+                // API Development
+                "humao.rest-client",
+                "rangav.vscode-thunder-client",
+                "ms-vscode.vscode-json5",
+                "redhat.vscode-yaml",
+                
+                // File Support & Syntax
+                "ms-vscode.vscode-json",
+                "redhat.vscode-xml",
+                "ms-vscode.vscode-html",
+                
+                // Git & Version Control
+                "eamodio.gitlens",
+                "github.vscode-github-actions",
+                "ms-vscode.vscode-pull-request-github",
+                
+                // DevContainer & Docker
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                
+                // Productivity & Navigation
+                "christian-kohler.path-intellisense",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.vscode-todo-highlight",
+                "gruntfuggly.todo-tree",
+                "ms-vscode.wordcount",
+                "alefragnani.bookmarks",
+                
+                // Terminal & Shell
+                "timonwong.shellcheck",
+                "rogalmic.bash-debug",
+                "mads-hartmann.bash-ide-vscode",
+                
+                // Documentation & Markdown
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                "davidanson.vscode-markdownlint",
+                
+                // Component Development
+                "steoates.autoimport-es6-ts",
+                "wix.vscode-import-cost",
+                "ms-vscode.vscode-typescript-next",
+                
+                // Theme & UI Enhancement
+                "pkief.material-icon-theme",
+                "zhuangtongfa.material-theme",
+                "ms-vscode.theme-predawn"
+            ],
+            "settings": {
+                // Code Runner Settings
+                "code-runner.executorMap": {
+                    "javascript": "node",
+                    "typescript": "npx ts-node",
+                    "python": "python3 -u",
+                    "shellscript": "bash"
+                },
+                "code-runner.runInTerminal": true,
+                "code-runner.saveFileBeforeRun": true,
+                "code-runner.clearPreviousOutput": true,
+                
+                // Editor Configuration
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.fixAll.eslint": "explicit",
+                    "source.organizeImports": "explicit"
+                },
+                "editor.tabSize": 2,
+                "editor.insertSpaces": true,
+                "editor.detectIndentation": false,
+                
+                // TypeScript/JavaScript
+                "typescript.updateImportsOnFileMove.enabled": "always",
+                "typescript.preferences.quoteStyle": "single",
+                "javascript.preferences.quoteStyle": "single",
+                "typescript.suggest.autoImports": true,
+                "javascript.suggest.autoImports": true,
+                
+                // Files Configuration
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 1000,
+                "files.trimTrailingWhitespace": true,
+                "files.insertFinalNewline": true,
+                
+                // Terminal Configuration
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "terminal.integrated.defaultProfile.linux": "bash",
+                
+                // Git Configuration
+                "git.enableSmartCommit": true,
+                "git.confirmSync": false,
+                
+                // Workbench
+                "workbench.startupEditor": "readme"
+            }
         }
     },
     "forwardPorts": [3000, 3001],

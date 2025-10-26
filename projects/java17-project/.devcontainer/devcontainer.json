@@ -6,19 +6,73 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                // Core Java Development
                 "redhat.java",
                 "vscjava.vscode-java-pack",
                 "vscjava.vscode-spring-boot-dashboard",
                 "pivotal.vscode-spring-boot",
                 "vscjava.vscode-spring-initializr",
                 "vscjava.vscode-maven",
+                "gabrielbb.vscode-lombok",
+                
+                // Code Execution & Testing
+                "formulahendry.code-runner",
+                "augustocdias.tasks-shell-input",
+                "ms-vscode.test-adapter-converter",
+                "vscjava.vscode-java-test",
+                
+                // Database & API
+                "ms-ossdata.vscode-postgresql",
+                "humao.rest-client",
+                "cweijan.vscode-mysql-client2",
+                "ms-mssql.mssql",
+                
+                // File Support & Syntax
                 "ms-vscode.vscode-json",
                 "redhat.vscode-xml",
-                "gabrielbb.vscode-lombok",
-                "ms-ossdata.vscode-postgresql",
-                "bradlc.vscode-tailwindcss"
+                "redhat.vscode-yaml",
+                "ms-vscode.vscode-json5",
+                "bradlc.vscode-tailwindcss",
+                
+                // Git & Version Control
+                "eamodio.gitlens",
+                "github.vscode-github-actions",
+                "ms-vscode.vscode-pull-request-github",
+                
+                // DevContainer & Docker
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                
+                // Productivity & Navigation
+                "christian-kohler.path-intellisense",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.vscode-todo-highlight",
+                "gruntfuggly.todo-tree",
+                "formulahendry.auto-rename-tag",
+                "ms-vscode.wordcount",
+                
+                // Terminal & Shell
+                "timonwong.shellcheck",
+                "rogalmic.bash-debug",
+                "mads-hartmann.bash-ide-vscode",
+                
+                // Documentation & Markdown
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                "davidanson.vscode-markdownlint",
+                
+                // Theme & UI Enhancement
+                "pkief.material-icon-theme",
+                "zhuangtongfa.material-theme",
+                "ms-vscode.theme-predawn",
+                
+                // Performance & Monitoring
+                "ms-vscode.vscode-typescript-next",
+                "ms-vscode.vscode-eslint",
+                "esbenp.prettier-vscode"
             ],
             "settings": {
+                // Java Configuration
                 "java.compile.nullAnalysis.mode": "automatic",
                 "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
                 "java.configuration.runtimes": [
@@ -26,7 +80,44 @@
                         "name": "JavaSE-21",
                         "path": "/usr/lib/jvm/java-21-openjdk-amd64"
                     }
-                ]
+                ],
+                
+                // Code Runner Settings
+                "code-runner.executorMap": {
+                    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+                    "javascript": "node",
+                    "python": "python3 -u",
+                    "shellscript": "bash"
+                },
+                "code-runner.runInTerminal": true,
+                "code-runner.saveFileBeforeRun": true,
+                "code-runner.clearPreviousOutput": true,
+                
+                // Editor Configuration
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": "explicit",
+                    "source.fixAll": "explicit"
+                },
+                "editor.tabSize": 4,
+                "editor.insertSpaces": true,
+                
+                // Terminal Configuration
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "terminal.integrated.defaultProfile.linux": "bash",
+                
+                // Files Configuration
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 1000,
+                "files.trimTrailingWhitespace": true,
+                "files.insertFinalNewline": true,
+                
+                // Git Configuration
+                "git.enableSmartCommit": true,
+                "git.confirmSync": false,
+                
+                // Workbench
+                "workbench.startupEditor": "readme"
             }
         }
     },

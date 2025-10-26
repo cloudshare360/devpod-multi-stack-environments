@@ -12,30 +12,141 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                // Core Python Development
                 "ms-python.python",
                 "ms-python.pylint",
                 "ms-python.black-formatter",
                 "ms-python.flake8",
                 "ms-python.isort",
-                "ms-toolsai.jupyter",
-                "ms-vscode.vscode-json",
+                "ms-python.mypy-type-checker",
                 "charliermarsh.ruff",
-                "ms-python.mypy-type-checker"
+                
+                // Code Execution & Testing
+                "formulahendry.code-runner",
+                "augustocdias.tasks-shell-input",
+                "ms-python.pytest",
+                "hbenl.vscode-test-explorer",
+                "littlefoxteam.vscode-python-test-adapter",
+                
+                // Jupyter & Data Science
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-toolsai.vscode-jupyter-cell-tags",
+                "ms-toolsai.vscode-jupyter-slideshow",
+                
+                // Web Framework Support
+                "batisteo.vscode-django",
+                "ms-python.flake8",
+                "kevinrose.vsc-python-indent",
+                "wholroyd.jinja",
+                
+                // Database & API
+                "humao.rest-client",
+                "rangav.vscode-thunder-client",
+                "cweijan.vscode-mysql-client2",
+                "ms-ossdata.vscode-postgresql",
+                "mtxr.sqltools",
+                
+                // File Support & Syntax
+                "ms-vscode.vscode-json",
+                "redhat.vscode-yaml",
+                "ms-vscode.vscode-json5",
+                "redhat.vscode-xml",
+                
+                // Git & Version Control
+                "eamodio.gitlens",
+                "github.vscode-github-actions",
+                "ms-vscode.vscode-pull-request-github",
+                
+                // DevContainer & Docker
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                
+                // Productivity & Navigation
+                "christian-kohler.path-intellisense",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.vscode-todo-highlight",
+                "gruntfuggly.todo-tree",
+                "ms-vscode.wordcount",
+                "alefragnani.bookmarks",
+                
+                // Terminal & Shell
+                "timonwong.shellcheck",
+                "rogalmic.bash-debug",
+                "mads-hartmann.bash-ide-vscode",
+                
+                // Documentation & Markdown
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                "davidanson.vscode-markdownlint",
+                "lextudio.restructuredtext",
+                
+                // Python-specific Tools
+                "ms-python.autopep8",
+                "njpwerner.autodocstring",
+                "almenon.arepl",
+                "dongli.python-preview",
+                
+                // Theme & UI Enhancement
+                "pkief.material-icon-theme",
+                "zhuangtongfa.material-theme",
+                "ms-vscode.theme-predawn"
             ],
             "settings": {
+                // Python Configuration
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
                 "python.formatting.provider": "black",
                 "python.linting.enabled": true,
                 "python.linting.pylintEnabled": true,
                 "python.linting.flake8Enabled": true,
                 "python.sortImports.args": ["--profile", "black"],
+                
+                // Code Runner Settings
+                "code-runner.executorMap": {
+                    "python": "python3 -u",
+                    "javascript": "node",
+                    "shellscript": "bash",
+                    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt"
+                },
+                "code-runner.runInTerminal": true,
+                "code-runner.saveFileBeforeRun": true,
+                "code-runner.clearPreviousOutput": true,
+                
+                // Editor Configuration
                 "editor.formatOnSave": true,
                 "editor.codeActionsOnSave": {
-                    "source.organizeImports": "explicit"
+                    "source.organizeImports": "explicit",
+                    "source.fixAll": "explicit"
                 },
+                "editor.tabSize": 4,
+                "editor.insertSpaces": true,
+                
+                // Python-specific editor settings
                 "[python]": {
-                    "editor.defaultFormatter": "ms-python.python"
-                }
+                    "editor.defaultFormatter": "ms-python.python",
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "explicit"
+                    }
+                },
+                
+                // Terminal Configuration
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "terminal.integrated.defaultProfile.linux": "bash",
+                
+                // Files Configuration
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 1000,
+                "files.trimTrailingWhitespace": true,
+                "files.insertFinalNewline": true,
+                
+                // Git Configuration
+                "git.enableSmartCommit": true,
+                "git.confirmSync": false,
+                
+                // Workbench
+                "workbench.startupEditor": "readme"
             }
         }
     },

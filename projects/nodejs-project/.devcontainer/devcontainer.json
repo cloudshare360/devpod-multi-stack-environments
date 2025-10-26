@@ -19,42 +19,74 @@
                 "ms-vscode.vscode-eslint",
                 "esbenp.prettier-vscode",
                 
+                // Code Execution & Testing
+                "formulahendry.code-runner",
+                "augustocdias.tasks-shell-input",
+                "ms-vscode.test-adapter-converter",
+                "orta.vscode-jest",
+                "hbenl.vscode-test-explorer",
+                
                 // Node.js Specific
                 "ms-vscode.vscode-npm-script",
                 "christian-kohler.npm-intellisense",
                 "eg2.vscode-npm-script",
+                "leizongmin.node-module-intellisense",
                 
-                // API Development
+                // API Development & HTTP
                 "humao.rest-client",
+                "rangav.vscode-thunder-client",
                 "ms-vscode.vscode-json5",
                 "redhat.vscode-yaml",
                 
                 // Git & Version Control
                 "eamodio.gitlens",
                 "github.vscode-github-actions",
-                
-                // Code Quality & Testing
-                "orta.vscode-jest",
-                "ms-vscode.test-adapter-converter",
-                
-                // Productivity
-                "formulahendry.auto-rename-tag",
-                "christian-kohler.path-intellisense",
-                "streetsidesoftware.code-spell-checker",
-                "ms-vscode.vscode-todo-highlight",
-                "gruntfuggly.todo-tree",
+                "ms-vscode.vscode-pull-request-github",
+                "github.vscode-pull-request-github",
                 
                 // DevContainer & Docker
                 "ms-vscode-remote.remote-containers",
                 "ms-azuretools.vscode-docker",
                 
-                // Browser Development
+                // Web Development
                 "ms-vscode.live-server",
                 "ritwickdey.liveserver",
+                "formulahendry.auto-rename-tag",
+                "bradlc.vscode-tailwindcss",
+                "pranaygp.vscode-css-peek",
                 
-                // Theme & UI
+                // Productivity & Navigation
+                "christian-kohler.path-intellisense",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.vscode-todo-highlight",
+                "gruntfuggly.todo-tree",
+                "ms-vscode.wordcount",
+                "alefragnani.bookmarks",
+                
+                // Terminal & Shell
+                "timonwong.shellcheck",
+                "rogalmic.bash-debug",
+                "mads-hartmann.bash-ide-vscode",
+                
+                // Documentation & Markdown
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                "davidanson.vscode-markdownlint",
+                
+                // Database Support
+                "cweijan.vscode-mysql-client2",
+                "ms-ossdata.vscode-postgresql",
+                "bradlc.vscode-mongodb",
+                
+                // Theme & UI Enhancement
                 "pkief.material-icon-theme",
-                "zhuangtongfa.material-theme"
+                "zhuangtongfa.material-theme",
+                "ms-vscode.theme-predawn",
+                
+                // Code Quality & Formatting
+                "dbaeumer.vscode-eslint",
+                "bradlc.vscode-tailwindcss",
+                "ms-vscode.vscode-typescript-next"
             ],
             "settings": {
                 // Editor Configuration
