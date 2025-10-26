@@ -10,8 +10,9 @@ This guide explains how to use the DevPod Desktop application to browse your mul
 4. [Project Structure Navigation](#project-structure-navigation)
 5. [Starting Applications](#starting-applications)
 6. [Database Management](#database-management)
-7. [Development Workflows](#development-workflows)
-8. [Troubleshooting](#troubleshooting)
+7. [GitHub Copilot Integration](#github-copilot-integration)
+8. [Development Workflows](#development-workflows)
+9. [Troubleshooting](#troubleshooting)
 
 ## 🖥️ DevPod Desktop Overview
 
@@ -22,6 +23,8 @@ DevPod Desktop is a user-friendly GUI application that simplifies container-base
 - **Integrated Terminal**: Access containerized environments directly
 - **Port Management**: Automatic port forwarding and conflict resolution
 - **VS Code Integration**: Seamless integration with Visual Studio Code
+- **AI-Powered Development**: GitHub Copilot integration for enhanced coding assistance
+- **Consistent UI**: Automatic menu bar visibility and optimized workspace settings
 
 ## 🚀 Installation & Setup
 
@@ -316,6 +319,178 @@ cd database
 | mern-fullstack | 5438 | http://localhost:8086 |
 | angular-java-fullstack | 5439 | http://localhost:8087 |
 
+## 🤖 GitHub Copilot Integration
+
+### Overview
+
+The nodejs-project (and soon other projects) includes **GitHub Copilot** and **GitHub Copilot Chat** for AI-powered development assistance. This provides:
+
+- **Intelligent Code Completion**: AI-powered suggestions as you type
+- **Chat-Based Assistance**: Ask questions and get code explanations
+- **Code Generation**: Generate functions, classes, and entire files
+- **Bug Fixes**: Get suggestions for fixing code issues
+- **Documentation**: Generate comments and documentation
+- **Test Generation**: Create unit tests automatically
+
+### Setup Requirements
+
+#### 1. GitHub Copilot Subscription
+
+**Individual Plan**: $10/month or $100/year
+**Business Plan**: $19/user/month (for organizations)
+**Student/Teacher**: Free with GitHub Education benefits
+
+**Sign up at**: https://github.com/features/copilot
+
+#### 2. Authentication
+
+**Method A: Through VS Code**
+1. Open VS Code in your DevPod workspace
+2. Look for **GitHub Copilot** in the status bar
+3. Click to **Sign in to GitHub**
+4. Follow the authentication process
+
+**Method B: Through GitHub CLI**
+```bash
+# In VS Code terminal
+gh auth login
+# Follow the prompts to authenticate
+```
+
+#### 3. Extension Verification
+
+The nodejs-project automatically includes:
+```json
+"extensions": [
+    "github.copilot",           // Core Copilot extension
+    "github.copilot-chat",      // Chat interface
+    // ... other extensions
+]
+```
+
+### Using GitHub Copilot
+
+#### Code Completion
+- **Type naturally**: Copilot suggests completions as you type
+- **Accept suggestion**: Press `Tab` to accept
+- **Next suggestion**: Press `Alt+]` (or `Option+]` on Mac)
+- **Previous suggestion**: Press `Alt+[` (or `Option+[` on Mac)
+
+#### Copilot Chat
+- **Open Chat**: `Ctrl+Shift+P` → "GitHub Copilot: Open Chat"
+- **Inline Chat**: `Ctrl+I` for inline assistance
+- **Explain Code**: Select code → Right-click → "Copilot: Explain This"
+- **Generate Tests**: Select function → "Copilot: Generate Tests"
+
+#### Example Chat Commands
+```
+// Ask general questions
+"How do I connect to PostgreSQL in Node.js?"
+
+// Request code generation
+"Create a REST API endpoint for user authentication"
+
+// Get explanations
+"Explain this function and how it works"
+
+// Request optimizations
+"How can I improve the performance of this code?"
+
+// Generate tests
+"Create unit tests for this user service class"
+```
+
+### AI-Enhanced Development Workflow
+
+#### 1. Project Setup with AI
+```bash
+# Start nodejs-project
+cd nodejs-project && devpod up .
+
+# In VS Code, use Copilot Chat:
+"Help me set up a REST API with Express and PostgreSQL"
+```
+
+#### 2. Database Integration
+```bash
+# Ask Copilot Chat:
+"Show me how to connect to PostgreSQL using the credentials:
+Host: localhost:5434
+Database: devdb
+User: devuser
+Password: devpass123"
+```
+
+#### 3. API Development
+```javascript
+// Type a comment and let Copilot generate code:
+// Create an Express route to get all users from PostgreSQL
+
+// Copilot will suggest something like:
+app.get('/api/users', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM employees');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+```
+
+#### 4. Testing with AI
+```bash
+# Ask Copilot Chat:
+"Generate Jest unit tests for my user API endpoints"
+```
+
+### Copilot Best Practices
+
+#### 1. Descriptive Comments
+```javascript
+// Good: Copilot understands intent
+// Create a middleware function to validate JWT tokens and check user permissions
+
+// Less effective:
+// JWT function
+```
+
+#### 2. Context Awareness
+- **Open related files** in VS Code tabs for better context
+- **Provide examples** in comments for specific patterns
+- **Use meaningful variable names** for better suggestions
+
+#### 3. Security Considerations
+- **Review all generated code** before committing
+- **Don't include sensitive data** in prompts
+- **Validate security practices** in generated code
+- **Test thoroughly** before deploying
+
+### Troubleshooting Copilot
+
+#### Copilot Not Working
+```bash
+# Check authentication status
+gh auth status
+
+# Re-authenticate if needed
+gh auth login
+
+# Check VS Code extension status
+# Command Palette → "GitHub Copilot: Check Status"
+```
+
+#### No Suggestions Appearing
+1. **Check subscription status** at github.com/settings/copilot
+2. **Verify extensions** are enabled in VS Code
+3. **Restart VS Code** and rebuild container if needed
+4. **Check internet connection** for AI service access
+
+#### Chat Not Responding
+1. **Verify Copilot Chat extension** is installed
+2. **Check GitHub authentication** status
+3. **Try refreshing** the chat panel
+4. **Restart VS Code** if issues persist
+
 ## 💻 Development Workflows
 
 ### Typical Development Session
@@ -451,6 +626,41 @@ docker system prune
 
 # Use volume mounts instead of bind mounts
 # (Already configured in projects)
+```
+
+#### 6. Menu Bar Not Visible
+
+**Symptoms**: VS Code menu bar (File, Edit, View, etc.) is hidden
+
+**Solutions**:
+- **Automatic Fix**: The nodejs-project includes `"window.menuBarVisibility": "classic"` setting
+- **Manual Fix**: Press `Alt` key to temporarily show menu, then View → Appearance → Menu Bar
+- **Permanent Fix**: Add to devcontainer.json settings:
+```json
+"settings": {
+    "window.menuBarVisibility": "classic",
+    "window.enableMenuBarMnemonics": true
+}
+```
+
+#### 7. GitHub Copilot Issues
+
+**Symptoms**: Copilot not providing suggestions or chat not working
+
+**Solutions**:
+```bash
+# Verify subscription and authentication
+gh auth status
+
+# Check Copilot status in VS Code
+# Command Palette → "GitHub Copilot: Check Status"
+
+# Re-authenticate if needed
+gh auth logout
+gh auth login
+
+# Restart VS Code and rebuild container
+devpod rebuild nodejs-project
 ```
 
 ### DevPod Desktop Specific Issues

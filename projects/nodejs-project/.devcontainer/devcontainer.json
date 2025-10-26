@@ -13,6 +13,10 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                // AI-Powered Development
+                "github.copilot",
+                "github.copilot-chat",
+                
                 // Core Node.js Development
                 "ms-vscode.vscode-typescript-next",
                 "ms-vscode.vscode-json",
@@ -128,7 +132,9 @@
                 "gitlens.views.repositories.location": "scm",
                 
                 // Workbench
-                "workbench.startupEditor": "readme"
+                "workbench.startupEditor": "readme",
+                "window.menuBarVisibility": "classic",
+                "window.enableMenuBarMnemonics": true
             }
         }
     },
