@@ -226,13 +226,24 @@
 
             <div class="command-block">
                 <div class="command-header">
-                    <span class="command-title">Open in VS Code</span>
+                    <span class="command-title">Open in VS Code Desktop</span>
                     <div class="btn-group">
                         <button class="copy-btn" onclick="copyCommand(this, 'devpod ide vscode my-workspace')">Copy</button>
                     </div>
                 </div>
-                <div class="description">Opens the workspace in Visual Studio Code</div>
+                <div class="description">Opens the workspace in VS Code desktop application</div>
                 <div class="command-text">devpod ide vscode my-workspace</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Open in VS Code Browser</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod ide openvscode my-workspace')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Opens the workspace in VS Code browser (no desktop installation needed)</div>
+                <div class="command-text">devpod ide openvscode my-workspace</div>
             </div>
         </div>
 

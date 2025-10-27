@@ -46,16 +46,17 @@ echo "2)  devpod list"
 echo "3)  devpod up --id my-workspace ."
 echo "4)  devpod status my-workspace"
 echo "5)  devpod ssh my-workspace"
-echo "6)  devpod ide vscode my-workspace"
-echo "7)  devpod stop my-workspace"
-echo "8)  devpod delete my-workspace"
-echo "9)  devpod logs my-workspace"
-echo "10) devpod provider list"
-echo "11) docker version"
-echo "12) docker ps"
+echo "6)  devpod ide vscode my-workspace (Desktop)"
+echo "7)  devpod ide openvscode my-workspace (Browser)"
+echo "8)  devpod stop my-workspace"
+echo "9)  devpod delete my-workspace"
+echo "10) devpod logs my-workspace"
+echo "11) devpod provider list"
+echo "12) docker version"
+echo "13) docker ps"
 echo ""
 
-read -p "Enter your choice (1-12): " choice
+read -p "Enter your choice (1-13): " choice
 
 case $choice in
     1)
@@ -74,24 +75,27 @@ case $choice in
         copy_to_clipboard "devpod ssh my-workspace" "SSH into workspace"
         ;;
     6)
-        copy_to_clipboard "devpod ide vscode my-workspace" "Open workspace in VS Code"
+        copy_to_clipboard "devpod ide vscode my-workspace" "Open workspace in VS Code desktop"
         ;;
     7)
-        copy_to_clipboard "devpod stop my-workspace" "Stop workspace"
+        copy_to_clipboard "devpod ide openvscode my-workspace" "Open workspace in VS Code browser"
         ;;
     8)
-        copy_to_clipboard "devpod delete my-workspace" "Delete workspace"
+        copy_to_clipboard "devpod stop my-workspace" "Stop workspace"
         ;;
     9)
-        copy_to_clipboard "devpod logs my-workspace" "View workspace logs"
+        copy_to_clipboard "devpod delete my-workspace" "Delete workspace"
         ;;
     10)
-        copy_to_clipboard "devpod provider list" "List available providers"
+        copy_to_clipboard "devpod logs my-workspace" "View workspace logs"
         ;;
     11)
-        copy_to_clipboard "docker version" "Check Docker version"
+        copy_to_clipboard "devpod provider list" "List available providers"
         ;;
     12)
+        copy_to_clipboard "docker version" "Check Docker version"
+        ;;
+    13)
         copy_to_clipboard "docker ps" "List running containers"
         ;;
     *)

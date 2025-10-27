@@ -41,6 +41,20 @@
         ],
         "description": "Open workspace in IDE"
     },
+    "DevPod: Open VS Code Browser": {
+        "prefix": "devpod-browser",
+        "body": [
+            "devpod ide openvscode ${1:workspace-name}"
+        ],
+        "description": "Open workspace in VS Code browser (no desktop app needed)"
+    },
+    "DevPod: Open VS Code Desktop": {
+        "prefix": "devpod-vscode",
+        "body": [
+            "devpod ide vscode ${1:workspace-name}"
+        ],
+        "description": "Open workspace in VS Code desktop application"
+    },
     "DevPod: Stop Workspace": {
         "prefix": "devpod-stop",
         "body": [

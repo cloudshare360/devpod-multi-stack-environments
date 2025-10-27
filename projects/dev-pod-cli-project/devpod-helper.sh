@@ -104,7 +104,8 @@ quick_start_commands() {
     execute_command "devpod list" "List all existing workspaces"
     execute_command "devpod provider list" "Show available providers"
     execute_command "devpod up --id my-first-workspace ." "Create workspace from current directory"
-    execute_command "devpod ide vscode my-first-workspace" "Open workspace in VS Code"
+    execute_command "devpod ide vscode my-first-workspace" "Open workspace in VS Code desktop"
+    execute_command "devpod ide openvscode my-first-workspace" "Open workspace in VS Code browser"
 }
 
 # Basic commands

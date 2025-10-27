@@ -146,6 +146,9 @@ cd projects/dev-pod-cli-project
 
 # Run the interactive helper
 ./devpod-helper.sh
+
+# Or try the VS Code browser demo
+./browser-demo.sh
 ```
 
 #### Option 2: Web-Based Command Helper
@@ -165,7 +168,9 @@ If you're using VS Code, we've included custom snippets for DevPod commands:
    - `devpod-up` → Create workspace
    - `devpod-list` → List workspaces  
    - `devpod-ssh` → SSH into workspace
-   - `devpod-ide` → Open in IDE
+   - `devpod-ide` → Open in IDE (VS Code desktop)
+   - `devpod-browser` → Open in VS Code browser
+   - `devpod-openvscode` → Open in OpenVSCode browser
 
 **Features Available in Both Helpers:**
 - 📋 **Copy to Clipboard**: Automatically copy commands to your clipboard
@@ -206,6 +211,9 @@ devpod status my-workspace
 
 # Open in VS Code
 devpod ide vscode my-workspace
+
+# Open in VS Code browser (no desktop app needed)
+devpod ide openvscode my-workspace
 
 # SSH into workspace
 devpod ssh my-workspace
@@ -291,11 +299,72 @@ devpod ide vscode my-first-workspace
 
 #### Method 2: From Git Repository
 ```bash
+#### Method 2: From Git Repository
+```bash
 # Create workspace from GitHub repository
 devpod up --id my-git-workspace https://github.com/username/repository
 
 # Open in browser-based IDE
 devpod ide openvscode my-git-workspace
+```
+
+#### 🌐 VS Code Browser Access Options
+
+DevPod supports multiple ways to access your workspace:
+
+**Option 1: VS Code Desktop Application**
+```bash
+# Requires VS Code installed locally
+devpod ide vscode my-workspace
+```
+
+**Option 2: VS Code in Browser (Recommended for Remote Access)**
+```bash
+# No local VS Code installation needed
+# Runs entirely in your web browser
+devpod ide openvscode my-workspace
+
+# The browser will automatically open with your workspace
+# URL typically: http://localhost:8080 or similar
+```
+
+**Benefits of Browser VS Code:**
+- 🌐 **No Installation Required**: Works on any device with a web browser
+- 🔒 **Secure Remote Access**: Access your development environment from anywhere
+- 💻 **Cross-Platform**: Works on tablets, Chromebooks, and any OS
+- 🚀 **Fast Startup**: No need to sync extensions or settings locally
+- 🔄 **Consistent Environment**: Same experience across all devices
+
+**When to Use Each:**
+- **Desktop VS Code**: Best for local development with full extension ecosystem
+- **Browser VS Code**: Perfect for remote work, temporary access, or devices without VS Code
+
+**🔧 Complete VS Code Browser Workflow:**
+
+```bash
+# 1. Create a workspace from your project
+devpod up --id my-project .
+
+# 2. Open in browser VS Code (automatically opens browser)
+devpod ide openvscode my-project
+
+# 3. Alternative: Get the browser URL manually
+devpod status my-project
+# Look for the IDE URL in the output
+
+# 4. Access from any device using the URL
+# Example: http://localhost:8080 or similar
+```
+
+**🌐 Browser VS Code Features:**
+- ✅ **Full VS Code Experience**: Same interface as desktop version
+- ✅ **Extension Support**: Install and use most VS Code extensions
+- ✅ **Terminal Access**: Built-in terminal for command execution
+- ✅ **File Explorer**: Complete file system navigation
+- ✅ **Git Integration**: Full version control support
+- ✅ **Debugging**: Debug your applications in the browser
+- ✅ **Split Panes**: Multiple editors and terminals
+- ✅ **Theme Support**: Use your favorite VS Code themes
 ```
 
 #### Method 3: Using This Project
