@@ -1,0 +1,281 @@
+{
+    "name": "DevPod CLI Project Workspace",
+    "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+    "workspaceFolder": "/workspaces/dev-pod-cli-project-workspace",
+    "features": {
+        // Core Development Tools
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": true,
+            "upgradePackages": true,
+            "username": "vscode",
+            "userUid": "automatic",
+            "userGid": "automatic"
+        },
+        
+        // Programming Languages
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "20",
+            "nodeGypDependencies": true,
+            "nvmVersion": "latest"
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.12",
+            "installTools": true,
+            "installJupyterlab": true,
+            "configureGitAliases": true
+        },
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "21",
+            "installMaven": true,
+            "installGradle": true
+        },
+        "ghcr.io/devcontainers/features/go:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/rust:1": {
+            "version": "latest",
+            "profile": "default"
+        },
+        "ghcr.io/devcontainers/features/dotnet:2": {
+            "version": "8.0",
+            "installUsingApt": true
+        },
+        "ghcr.io/devcontainers/features/php:1": {
+            "version": "8.3",
+            "installComposer": true
+        },
+        
+        // Database Tools
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        
+        // Development Tools
+        "ghcr.io/devcontainers/features/git:1": {
+            "ppa": true,
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "installDirectlyFromGitHubRelease": true,
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/terraform:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+            "version": "latest",
+            "helm": "latest",
+            "minikube": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // AI-Powered Development
+                "github.copilot",
+                "github.copilot-chat",
+                
+                // DevContainer & Docker
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                
+                // Core Development
+                "ms-vscode.vscode-json",
+                "redhat.vscode-yaml",
+                "ms-vscode.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "formulahendry.code-runner",
+                
+                // Multi-Language Support
+                // Python
+                "ms-python.python",
+                "ms-python.pylint",
+                "ms-python.black-formatter",
+                "ms-toolsai.jupyter",
+                
+                // JavaScript/Node.js
+                "ms-vscode.vscode-typescript-next",
+                "ms-vscode.vscode-npm-script",
+                "christian-kohler.npm-intellisense",
+                
+                // Java
+                "redhat.java",
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-spring-boot-dashboard",
+                "vscjava.vscode-maven",
+                
+                // Go
+                "golang.go",
+                
+                // Rust
+                "rust-lang.rust-analyzer",
+                "vadimcn.vscode-lldb",
+                
+                // C/C++
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                
+                // .NET
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.vscode-dotnet-runtime",
+                
+                // PHP
+                "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                
+                // Web Development
+                "ms-vscode.live-server",
+                "ritwickdey.liveserver",
+                "bradlc.vscode-tailwindcss",
+                "ms-vscode.vscode-html",
+                "ms-vscode.vscode-css",
+                
+                // Database
+                "ms-ossdata.vscode-postgresql",
+                "cweijan.vscode-mysql-client2",
+                "mongodb.mongodb-vscode",
+                
+                // API Development
+                "humao.rest-client",
+                "rangav.vscode-thunder-client",
+                
+                // Git & Version Control
+                "eamodio.gitlens",
+                "github.vscode-github-actions",
+                "ms-vscode.vscode-pull-request-github",
+                
+                // DevOps & Cloud
+                "hashicorp.terraform",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "ms-azuretools.vscode-azurecli",
+                
+                // Productivity
+                "christian-kohler.path-intellisense",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.vscode-todo-highlight",
+                "gruntfuggly.todo-tree",
+                "alefragnani.bookmarks",
+                
+                // Terminal & Shell
+                "timonwong.shellcheck",
+                "rogalmic.bash-debug",
+                
+                // Documentation
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                
+                // Themes & UI
+                "pkief.material-icon-theme",
+                "ms-vscode.theme-predawn"
+            ],
+            "settings": {
+                // Editor Configuration
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.fixAll.eslint": "explicit",
+                    "source.organizeImports": "explicit"
+                },
+                "editor.tabSize": 2,
+                "editor.insertSpaces": true,
+                "editor.detectIndentation": false,
+                "editor.minimap.enabled": true,
+                "editor.wordWrap": "on",
+                
+                // Files Configuration
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 1000,
+                "files.trimTrailingWhitespace": true,
+                "files.insertFinalNewline": true,
+                "files.associations": {
+                    "*.json": "jsonc",
+                    "Dockerfile*": "dockerfile",
+                    ".devcontainer.json": "jsonc"
+                },
+                
+                // Terminal Configuration
+                "terminal.integrated.shell.linux": "/usr/bin/zsh",
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.fontFamily": "MesloLGS NF",
+                
+                // Code Runner Settings
+                "code-runner.executorMap": {
+                    "javascript": "node",
+                    "typescript": "npx ts-node",
+                    "python": "python3 -u",
+                    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+                    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+                    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+                    "csharp": "cd $dir && dotnet run",
+                    "go": "go run",
+                    "rust": "cd $dir && rustc $fileName && ./$fileNameWithoutExt",
+                    "php": "php",
+                    "ruby": "ruby",
+                    "perl": "perl",
+                    "shellscript": "bash"
+                },
+                "code-runner.runInTerminal": true,
+                "code-runner.saveFileBeforeRun": true,
+                "code-runner.clearPreviousOutput": true,
+                
+                // Language Specific Settings
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.formatOnSave": true,
+                    "editor.tabSize": 4
+                },
+                "[javascript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[typescript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[json]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[jsonc]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[yaml]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[markdown]": {
+                    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+                },
+                
+                // Git Configuration
+                "git.enableSmartCommit": true,
+                "git.confirmSync": false,
+                "gitlens.views.repositories.location": "scm",
+                
+                // Workbench
+                "workbench.startupEditor": "readme",
+                "window.menuBarVisibility": "classic",
+                "workbench.iconTheme": "material-icon-theme",
+                "workbench.colorTheme": "Default Dark Modern"
+            }
+        }
+    },
+    "forwardPorts": [3000, 3001, 5000, 8000, 8080, 9000],
+    "portsAttributes": {
+        "3000": {
+            "label": "Frontend Development Server",
+            "onAutoForward": "notify"
+        },
+        "5000": {
+            "label": "Backend API Server",
+            "onAutoForward": "notify"
+        },
+        "8000": {
+            "label": "Development Server",
+            "onAutoForward": "notify"
+        },
+        "8080": {
+            "label": "Web Server",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
+    "postStartCommand": "echo '🚀 DevPod CLI Project Workspace is ready! Check README.md for getting started guides.'",
+    "remoteUser": "vscode",
+    "shutdownAction": "stopContainer"
+}
