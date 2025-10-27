@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevPod Command Helper</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0d1117;
+            color: #c9d1d9;
+        }
+        
+        .container {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+        
+        .command-block {
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 12px 0;
+            position: relative;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+        }
+        
+        .command-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .command-title {
+            color: #58a6ff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .command-text {
+            color: #e6edf3;
+            white-space: pre-wrap;
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .copy-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: #2ea043;
+        }
+        
+        .copy-btn.copied {
+            background: #1f6feb;
+        }
+        
+        .execute-btn {
+            background: #fd7e14;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 8px;
+            transition: background 0.2s;
+        }
+        
+        .execute-btn:hover {
+            background: #e8590c;
+        }
+        
+        .category {
+            margin: 32px 0;
+        }
+        
+        .category-title {
+            color: #f0f6fc;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #21262d;
+            padding-bottom: 8px;
+        }
+        
+        .description {
+            color: #8b949e;
+            font-size: 14px;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-success { background: #238636; }
+        .status-warning { background: #d29922; }
+        .status-error { background: #da3633; }
+        
+        .terminal-output {
+            background: #010409;
+            border: 1px solid #21262d;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            font-size: 13px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 8px;
+        }
+        
+        h1 {
+            color: #f0f6fc;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .hero {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .hero-emoji {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-emoji">🚀</div>
+        <h1>DevPod Interactive Command Helper</h1>
+        <p style="color: #8b949e; font-size: 18px;">Copy and execute DevPod commands with ease</p>
+    </div>
+
+    <div class="container">
+        <div class="category">
+            <h2 class="category-title">🛠️ Installation Commands</h2>
+            
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Download DevPod</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'curl -L -o devpod \"https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64\"')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Downloads the latest DevPod binary for Linux</div>
+                <div class="command-text">curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64"</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Install DevPod</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'sudo install -c -m 0755 devpod /usr/local/bin')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Installs DevPod to the system PATH</div>
+                <div class="command-text">sudo install -c -m 0755 devpod /usr/local/bin</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Verify Installation</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod version')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Checks if DevPod was installed correctly</div>
+                <div class="command-text">devpod version</div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2 class="category-title">🚀 Quick Start Commands</h2>
+            
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">List Workspaces</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod list')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Shows all existing DevPod workspaces</div>
+                <div class="command-text">devpod list</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Create Workspace</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod up --id my-workspace .')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Creates a new workspace from the current directory</div>
+                <div class="command-text">devpod up --id my-workspace .</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Open in VS Code</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod ide vscode my-workspace')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Opens the workspace in Visual Studio Code</div>
+                <div class="command-text">devpod ide vscode my-workspace</div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2 class="category-title">🔧 Workspace Management</h2>
+            
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Check Status</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod status my-workspace')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Shows the current status of a workspace</div>
+                <div class="command-text">devpod status my-workspace</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">SSH Access</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod ssh my-workspace')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Opens an SSH connection to the workspace</div>
+                <div class="command-text">devpod ssh my-workspace</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Stop Workspace</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod stop my-workspace')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Stops a running workspace</div>
+                <div class="command-text">devpod stop my-workspace</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Delete Workspace</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod delete my-workspace')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Permanently deletes a workspace</div>
+                <div class="command-text">devpod delete my-workspace</div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2 class="category-title">🐛 Troubleshooting</h2>
+            
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">Check Docker</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'docker version')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Verifies Docker installation and connection</div>
+                <div class="command-text">docker version</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">View Logs</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'devpod logs my-workspace')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Shows workspace logs for debugging</div>
+                <div class="command-text">devpod logs my-workspace</div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-header">
+                    <span class="command-title">System Cleanup</span>
+                    <div class="btn-group">
+                        <button class="copy-btn" onclick="copyCommand(this, 'docker system prune -f')">Copy</button>
+                    </div>
+                </div>
+                <div class="description">Cleans up unused Docker resources</div>
+                <div class="command-text">docker system prune -f</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="terminal-output" id="terminal" style="display: none;">
+        <div style="color: #58a6ff; margin-bottom: 8px;">Terminal Output:</div>
+        <div id="terminal-content"></div>
+    </div>
+
+    <script>
+        function copyCommand(button, command) {
+            navigator.clipboard.writeText(command).then(function() {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+                
+                // Show notification
+                showNotification('Command copied to clipboard!', 'success');
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                showNotification('Failed to copy command', 'error');
+            });
+        }
+
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 12px 24px;
+                border-radius: 6px;
+                color: white;
+                font-weight: 500;
+                z-index: 1000;
+                transition: opacity 0.3s ease;
+                background: ${type === 'success' ? '#238636' : '#da3633'};
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'k') {
+                e.preventDefault();
+                const searchInput = document.createElement('input');
+                searchInput.placeholder = 'Search commands...';
+                searchInput.style.cssText = `
+                    position: fixed;
+                    top: 50px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    padding: 12px;
+                    border: 1px solid #30363d;
+                    border-radius: 6px;
+                    background: #161b22;
+                    color: #c9d1d9;
+                    font-size: 16px;
+                    width: 400px;
+                    z-index: 1001;
+                `;
+                document.body.appendChild(searchInput);
+                searchInput.focus();
+                
+                searchInput.addEventListener('blur', () => {
+                    document.body.removeChild(searchInput);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
