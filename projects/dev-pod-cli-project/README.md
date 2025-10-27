@@ -92,8 +92,9 @@ devpod version
 # List available providers
 devpod provider list
 
-# Check system requirements
-devpod doctor
+# Check system status
+devpod list
+devpod context list
 ```
 
 ## 🚀 Quick Start
@@ -655,7 +656,8 @@ docker system info
 docker system prune -f
 
 # Check DevPod status
-devpod doctor
+devpod list
+devpod provider list
 ```
 
 #### Issue 4: Port Already in Use
@@ -686,8 +688,10 @@ devpod context set-options --option IDE=vscode
 export DEVPOD_DEBUG=true
 devpod up --debug my-workspace
 
-# Check system requirements
-devpod doctor
+# Check system status
+devpod list
+devpod provider list
+devpod version
 
 # Inspect workspace
 devpod describe my-workspace
