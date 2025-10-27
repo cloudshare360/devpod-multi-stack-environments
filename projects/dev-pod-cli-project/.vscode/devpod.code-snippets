@@ -1,0 +1,125 @@
+{
+    "DevPod: Create Workspace": {
+        "prefix": "devpod-up",
+        "body": [
+            "devpod up --id ${1:workspace-name} ${2:.}"
+        ],
+        "description": "Create a new DevPod workspace",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: List Workspaces": {
+        "prefix": "devpod-list",
+        "body": [
+            "devpod list"
+        ],
+        "description": "List all DevPod workspaces",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Check Status": {
+        "prefix": "devpod-status",
+        "body": [
+            "devpod status ${1:workspace-name}"
+        ],
+        "description": "Check workspace status",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: SSH Access": {
+        "prefix": "devpod-ssh",
+        "body": [
+            "devpod ssh ${1:workspace-name}"
+        ],
+        "description": "SSH into workspace",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Execute Command": {
+        "prefix": "devpod-exec",
+        "body": [
+            "devpod ssh ${1:workspace-name} -- \"${2:command}\""
+        ],
+        "description": "Execute command in workspace",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Open in VS Code Desktop": {
+        "prefix": "devpod-ide",
+        "body": [
+            "devpod ide vscode ${1:workspace-name}"
+        ],
+        "description": "Open workspace in VS Code desktop",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Open in VS Code Browser": {
+        "prefix": "devpod-browser",
+        "body": [
+            "devpod ide openvscode ${1:workspace-name}"
+        ],
+        "description": "Open workspace in VS Code browser (no desktop app needed)",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Open in OpenVSCode Browser": {
+        "prefix": "devpod-openvscode",
+        "body": [
+            "devpod ide openvscode ${1:workspace-name}"
+        ],
+        "description": "Open workspace in OpenVSCode browser",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Stop Workspace": {
+        "prefix": "devpod-stop",
+        "body": [
+            "devpod stop ${1:workspace-name}"
+        ],
+        "description": "Stop a workspace",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Delete Workspace": {
+        "prefix": "devpod-delete",
+        "body": [
+            "devpod delete ${1:workspace-name}"
+        ],
+        "description": "Delete a workspace",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: View Logs": {
+        "prefix": "devpod-logs",
+        "body": [
+            "devpod logs ${1:workspace-name}"
+        ],
+        "description": "View workspace logs",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: List Providers": {
+        "prefix": "devpod-providers",
+        "body": [
+            "devpod provider list"
+        ],
+        "description": "List available providers",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Version": {
+        "prefix": "devpod-version",
+        "body": [
+            "devpod version"
+        ],
+        "description": "Show DevPod version",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Create from Git Repository": {
+        "prefix": "devpod-git",
+        "body": [
+            "devpod up --id ${1:workspace-name} ${2:https://github.com/user/repo}"
+        ],
+        "description": "Create workspace from Git repository",
+        "scope": "shellscript,bash,markdown"
+    },
+    "DevPod: Complete Setup Workflow": {
+        "prefix": "devpod-setup",
+        "body": [
+            "# Create and configure DevPod workspace",
+            "devpod up --id ${1:my-workspace} ${2:.}",
+            "devpod ide ${3|vscode,openvscode|} ${1:my-workspace}",
+            "devpod ssh ${1:my-workspace} -- \"${4:setup-command}\""
+        ],
+        "description": "Complete DevPod workspace setup workflow",
+        "scope": "shellscript,bash,markdown"
+    }
+}

@@ -159,18 +159,34 @@ open command-helper.html
 firefox command-helper.html
 ```
 
-#### Option 3: VS Code Snippets
-If you're using VS Code, we've included custom snippets for DevPod commands:
+#### Option 3: Ready-to-Use DevPod Commands
 
-1. Open VS Code in this project directory
-2. Type `devpod-` and press `Ctrl+Space` to see available snippets
-3. Common snippets:
-   - `devpod-up` → Create workspace
-   - `devpod-list` → List workspaces  
-   - `devpod-ssh` → SSH into workspace
-   - `devpod-ide` → Open in IDE (VS Code desktop)
-   - `devpod-browser` → Open in VS Code browser
-   - `devpod-openvscode` → Open in OpenVSCode browser
+**Essential DevPod CLI Commands** (copy and paste these in your terminal):
+
+```bash
+# Create workspace from current directory
+devpod up --id my-workspace .
+
+# List all workspaces
+devpod list
+
+# SSH into workspace
+devpod ssh my-workspace
+
+# Open in VS Code desktop
+devpod ide vscode my-workspace
+
+# Open in VS Code browser (no desktop VS Code needed)
+devpod ide openvscode my-workspace
+
+# Stop workspace
+devpod stop my-workspace
+
+# Delete workspace
+devpod delete my-workspace
+```
+
+> **⚠️ Important**: There are **no dashes** in DevPod commands. Use `devpod up`, not `devpod-up`!
 
 **Features Available in Both Helpers:**
 - 📋 **Copy to Clipboard**: Automatically copy commands to your clipboard
