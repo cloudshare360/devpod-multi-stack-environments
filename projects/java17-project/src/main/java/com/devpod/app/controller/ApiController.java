@@ -23,10 +23,10 @@ public class ApiController {
     @GetMapping("/")
     public ResponseEntity<Map<String, Object>> welcome() {
         Map<String, Object> response = Map.of(
-            "message", "🚀 Welcome to Java 17 DevPod API!",
+            "message", "🚀 Welcome to Java 21 DevPod API!",
             "timestamp", LocalDateTime.now().toString(),
-            "framework", "Spring Boot 3.1.5",
-            "java", "17",
+            "framework", "Spring Boot 3.4.0",
+            "java", "21",
             "version", "1.0.0"
         );
         return ResponseEntity.ok(response);
@@ -37,7 +37,7 @@ public class ApiController {
         Runtime runtime = Runtime.getRuntime();
         Map<String, Object> response = Map.of(
             "status", "OK",
-            "service", "Java 17 API",
+            "service", "Java 21 API",
             "timestamp", LocalDateTime.now().toString(),
             "memory", Map.of(
                 "total", runtime.totalMemory(),
